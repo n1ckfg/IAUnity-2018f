@@ -25,7 +25,7 @@ public class PlayerBullet : MonoBehaviour {
     }
 
     private void explode() {
-        PlayerBulletExplosion p = GameObject.Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform.parent).GetComponent<PlayerBulletExplosion>();
+        PlayerBulletExplosion p = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform.parent).GetComponent<PlayerBulletExplosion>();
         Destroy(gameObject);
     }
 

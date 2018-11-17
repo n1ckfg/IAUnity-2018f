@@ -10,18 +10,16 @@ public class GameManager : MonoBehaviour {
     public Player player;
 
     void Update() {
-        switch (gameState) {
-            case GameState.PLAY:
-                bool goToEnd = true;
-                for (int i = 0; i < bases.Length; i++) {
-                    if (!bases[i].isVisited) goToEnd = false;
-                }
-                if (goToEnd) gameState = GameState.END;
-                break;
-
-            case GameState.END:
-                break;
-        }
+		if (gameState == GameState.PLAY) {
+			bool goToEnd = true;
+			for (int i = 0; i < bases.Length; i++) {
+				if (!bases[i].isVisited) goToEnd = false;
+			}
+			if (goToEnd) gameState = GameState.END;
+		} else if (gameState == GameState.END) {
+			Debug.Log("You win!");
+			reset();
+		}
 	}
 
     public void reset() {

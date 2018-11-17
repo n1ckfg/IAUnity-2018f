@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 
     public void fire() {
         if (fireReady) {
-            PlayerBullet b = GameObject.Instantiate(bulletPrefab, transform.position + new Vector3(0f, -0.5f, 0f), transform.rotation, bulletParent).GetComponent<PlayerBullet>();
+            PlayerBullet b = Instantiate(bulletPrefab, transform.position + new Vector3(0f, -0.5f, 0f), transform.rotation, bulletParent).GetComponent<PlayerBullet>();
             fireReady = false;
             StartCoroutine(fireDelay());
         }
