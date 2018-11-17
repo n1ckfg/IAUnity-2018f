@@ -16,7 +16,7 @@ public class AnimTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(trigger && Time.time > delay){
-			anim.Play();
+			anim.Play(0);
 			trigger = false;
 		}
 	}

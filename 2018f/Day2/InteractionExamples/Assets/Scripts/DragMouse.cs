@@ -6,7 +6,7 @@ public class DragMouse : MonoBehaviour {
 
     public bool clicked = false;
     public bool hitSuccess = false;
-    public float dragDistance = 0f;
+    //public float dragDistance = 0f;
 
     void Update() {
         if (!Input.GetMouseButtonDown(0)) {
@@ -42,7 +42,7 @@ public class DragMouse : MonoBehaviour {
         Camera mainCamera = FindCamera();
         while (Input.GetMouseButton(0)) {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            dragDistance = ray.GetPoint(distance);
+            //dragDistance = ray.GetPoint(distance);
             yield return null;
         }
     }
