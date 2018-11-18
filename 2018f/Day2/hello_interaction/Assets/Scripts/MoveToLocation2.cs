@@ -6,16 +6,16 @@ public class MoveToLocation2 : MonoBehaviour {
 
 	public BasicController ctl;
 	public float speed = 0f;
+	public float delta = 0.0001f;
 	public Vector3 offset = new Vector3(0f, 0.5f, 0f);
 
 	[HideInInspector] public Vector3 target;
 
-	private float delta = 0.0001f;
-	private Vector3 origLoc;
+	private Vector3 origPos;
 	private bool isMoving = false;
 
 	void Start() {
-		origLoc = transform.position;
+		origPos = transform.position;
 	}
 
 	void Update()
@@ -32,11 +32,12 @@ public class MoveToLocation2 : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.R)) { // reset
-			transform.position = origLoc;
+			transform.position = origPos;
 			speed = 0f;
 		}
 
-		transform.position = Vector3.Lerp(transform.position, target + offset, speed);
+		Vector3 newPos = Vector3.Lerp(transform.position, target, speed);
+		transform.position = new Vector3(newPos.x, origPos.y, newPos.z);
 	}
 
 
